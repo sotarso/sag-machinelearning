@@ -1,5 +1,8 @@
 import streamlit as st
+import numpy as np
 import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
+
 
 st.title('🎶 Machine Learning App')
 
@@ -21,7 +24,7 @@ with st.expander('Data') :
 with st.expander('Data visualization'):
    st.scatter_chart(data=df, x='bill_length_mm', y='body_mass_g', color='species')
  
- # Input features
+ #Input features
  with st.sidebar:
    st.header('Input features')
    island = st.selectbox('Island', ('Biscoe', 'Dream', 'Torgersen'))
@@ -31,7 +34,7 @@ with st.expander('Data visualization'):
    body_mass_g = st.slider('Body mass (g)', 2700.0, 6300.0, 4207.0)
    gender = st.selectbox('Gender', ('male', 'female'))
  
-   # Create a DataFrame for the input features
+   #Create a DataFrame for the input features
    data = {'island': island,
            'bill_length_mm': bill_length_mm,
            'bill_depth_mm': bill_depth_mm,
